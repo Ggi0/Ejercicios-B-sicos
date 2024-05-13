@@ -58,6 +58,7 @@ def diagonalDifference(arr):
             if (columnas, filas, primerValor % 2 != 0) and (columnas == filas == primerValor):
                 print('Todos los valores correctos para realizar la operación')
                 
+                #invertir el orden de la lista, para la suma de la diagonal izquierda
                 arr2 = arr[i][::-1]
                 for j in range(columnas):
                     sumDer += arr[i][indice]
