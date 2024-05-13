@@ -24,10 +24,12 @@ Each of the next n lines describes a row, arr[i], and consists of n space-separa
 '''
 
 arr = [
-    [3],
-    [11, 2, 4],
-    [4, 11, 6],
-    [10, 8, 11]
+    [5],
+    [11, 2, 4, 3, 5],
+    [4, 11, 6, 13, 35],
+    [10, 8, 11, 21, 12],
+    [4, 11, 6, 19, 25],
+    [10, 8, 11, 2, 22]
 ]
 
 print('longitud de la matriz: ', len(arr))
@@ -50,37 +52,31 @@ def diagonalDifference(arr):
         
         for i in range(1, len(arr)):
             columnas = len(arr[i])
-            print(f'columna {i}: ', columnas, '\n')
+            print(f'Longitud del arreglo {i}: ', columnas, '\n')
             print('valores dentro de los arreglos ', arr[i])
             
             if (columnas, filas, primerValor % 2 != 0) and (columnas == filas == primerValor):
-                print('estamos dentro')
+                print('Todos los valores correctos para realizar la operación')
+                
+                arr2 = arr[i][::-1]
                 for j in range(columnas):
-                    print('valor de j: ', j)
                     sumDer += arr[i][indice]
+                    sumIzq += arr2[indice]
                     indice += 1
                     print('valor de indice: ', indice)
                     break
-                print(sumDer)
                 
-                for k in arr[i][::-1]:
-                    sumIzq += 1
-                    print(arr[i][::-1])
-                    print(k)
                     
             else:
                 print('El numero de filas y columnas no coinciden,\nla operación no se puede realizar')
                 break
+        print(sumDer)
+        print(sumIzq)
+        resultado = abs(sumDer - sumIzq)
+        return resultado
 
     else:
         print('Matriz con el formato incorrecto.')
     
     
-    
-    
-diagonalDifference(arr)
-
-'''
-lista = [100, 200, 500, 2, 36]
-for dato in lista[::-1]:
-   print(dato)'''
+print(diagonalDifference(arr))
