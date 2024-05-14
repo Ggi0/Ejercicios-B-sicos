@@ -81,3 +81,24 @@ def diagonalDifference(arr):
     
     
 print(diagonalDifference(arr))
+
+def diagonalDifference2(arr):
+    # Write your code here
+
+    sumDer = 0
+    sumIzq = 0
+    
+    # Obtenemos el tamanio de la matriz
+    n = len(arr)
+    
+    # Calculamos la suma de la diagonal derecha y la diagonal izquierda
+    for i in range(n):
+        sumDer += arr[i][i]
+        sumIzq += arr[i][n - i - 1]  # Obtenemos los elementos de la diagonal izquierda desde el final
+    
+    # Calculamos la diferencia absoluta entre las sumas
+    resultado = abs(sumDer - sumIzq)
+    
+    return resultado
+
+print(diagonalDifference2(arr))
